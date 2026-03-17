@@ -31,14 +31,11 @@ while iteracion:
  print("Product Name: ",nombre,"Price: ",precio, "Quantity: ",cantidad, "Total: ", costo_total)
  # CONTINUAR
  continuar = input("Do you wish to enter a new product? yes/no: ").strip().lower()
- while continuar !="yes" and continuar !="no":
-     print("Option NOT valid ❌")
-     continuar = input("Do you wish to enter a new product? yes/no: ").strip().lower()
  if continuar == "yes":
   iteracion = True
  else:
   iteracion = False
-  print("Thanks for entering new data!!!")
+ print("Thanks for entering new data!!!")
 
 
 
