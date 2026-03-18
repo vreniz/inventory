@@ -11,21 +11,33 @@ while iteracion:
             nombreval = True
         else:
             print("Error: name must contain only letters and spaces")
- while True: # validacion del precio en .flotante 
-     entrada_precio = input("Enter product price: ")
-     try:
-         precio = float(entrada_precio)
-         break
+ while True: # 
+     entrada_precio = input("Enter product price: ") # 
+     entrada_clean = entrada_precio.replace(",", ".") 
+     if entrada_clean.count(".") > 1: 
+        print("Error ❌, invalid format (too many decimals)") 
+        continue 
+     try: #1
+         precio = float(entrada_clean) 
+         if precio > 0: 
+            break 
+         else:
+             print("Error ❌, price must be a positive number") 
      except:
-         print("Error ❌, Please enter a valid number for price ")
- while True: # VALIDACION ENTERO 
-      entrada_cantidad = input("Enter Product Quantity: ")
-      try:
-         cantidad= int(entrada_cantidad)
-         break # creo que PARA QUITAR EL BREAK le puedo asignar false AQUI, si creo una variable adicional en true al comienzo y el while lo cambio a  Nombredevariable == True
-      except:
-          print("Error ❌, Please enter a valid number for Quantity ")
-    #Resultado      
+         print("Error ❌, Please enter a valid number for price (e.g. 1.0 or 1,0) ") # si no puede convertir eso no es un número y vuelve a pedir 🔁
+         
+ while True: # 
+      entrada_cantidad = input("Enter Product Quantity: ") 
+      try: #1
+            cantidad= int(entrada_cantidad) 
+            if cantidad > 0: 
+             break 
+            elif cantidad == 0: 
+                 print("Error ❌, quantity cannot be zero")
+            else: 
+                print("Error ❌, the quantity must be a positive integer") 
+      except ValueError: 
+          print("Error ❌, Please enter a valid integer number for Quantity ")   
       
  costo_total=(precio * cantidad) 
  print("Product Name: ",nombre,"Price: ",precio, "Quantity: ",cantidad, "Total: ", costo_total)
